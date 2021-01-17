@@ -16,6 +16,7 @@ public class ReflectionUtils {
         modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
     }
 
+
     public <T> T getFieldContent(Class<?> clazz, String fieldName, Object instance) {
         try {
             Field field = clazz.getDeclaredField(fieldName);

@@ -2,6 +2,7 @@ package me.lulu.cavesizemodifier.nms.v1_10_R1;
 
 import lombok.SneakyThrows;
 import me.lulu.cavesizemodifier.nms.CaveOverrider;
+import me.lulu.cavesizemodifier.utils.PaperUtil;
 import net.minecraft.server.v1_10_R1.ChunkGenerator;
 import net.minecraft.server.v1_10_R1.ChunkProviderGenerate;
 import net.minecraft.server.v1_10_R1.WorldServer;
@@ -18,6 +19,9 @@ public class CaveOverriderImpl implements CaveOverrider {
         WorldServer world = (( CraftWorld ) bukkitWorld).getHandle();
         ChunkGenerator chunkGenerator = world.getChunkProviderServer().chunkGenerator;
 
+        if (PaperUtil.isPaper())
+            chunkGenerator = PaperUtil.getPaperChunkGenerator(chunkGenerator);
+
         if (chunkGenerator instanceof NormalChunkGenerator) {
             ChunkGenerator generatorProvider = getProvider(chunkGenerator);
 
@@ -25,6 +29,7 @@ public class CaveOverriderImpl implements CaveOverrider {
                 modifyProvider(( ChunkProviderGenerate ) generatorProvider);
             }
         }
+
     }
 
     @SneakyThrows

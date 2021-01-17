@@ -45,7 +45,12 @@ public class ConfigLoader {
     }
 
     private File getFile() throws IOException {
-        File file = new File(CaveSizeModifier.getPlugin().getDataFolder(), annotation.file());
+        File folder = CaveSizeModifier.getPlugin().getDataFolder();
+
+        if (!folder.exists())
+            folder.mkdir();
+
+        File file = new File(folder, annotation.file());
 
         if (!file.exists())
             file.createNewFile();

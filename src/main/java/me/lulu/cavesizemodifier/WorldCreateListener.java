@@ -15,6 +15,7 @@ public class WorldCreateListener implements Listener {
     @EventHandler
     public void onWorldCreate(WorldInitEvent e) {
         if (e.getWorld().getEnvironment() == World.Environment.NORMAL) {
+            System.out.println("OVERRIDE");
             plugin.getOverrider().override(e.getWorld());
         }
     }

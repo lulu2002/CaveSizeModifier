@@ -38,8 +38,7 @@ public class CaveSizeModifier extends JavaPlugin {
 
     @SneakyThrows
     private CaveOverrider getOverrideByNmsVersion() {
-        String name = CaveOverriderImpl.class.getName()
-                .replace("v1_8_R3", getNmsVersion());
+        String name = CaveOverriderImpl.class.getName().replace("v1_8_R3", getNmsVersion());
         return ( CaveOverrider ) Class.forName(name).newInstance();
     }
 

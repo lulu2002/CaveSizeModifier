@@ -9,6 +9,7 @@ public class NewWorldGenCaves extends WorldGenCaves {
 
     protected void a(World var1, int var2, int var3, int var4, int var5, ChunkSnapshot var6) {
         int var7 = this.f.nextInt(this.f.nextInt(this.f.nextInt(15) + 1) + 1);
+
         if (!Randoms.randomCaveRate(this.f)) {
             var7 = 0;
         }
